@@ -1,0 +1,24 @@
+.navbar-content-custom,
+.navbar-content-custom:visited {
+    color: white;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+.navbar-content-custom:hover,
+.navbar-content-custom:active,
+.navbar-content-custom:focus {
+    color: rgb(220, 202, 202);
+}
+
+.offcanvas-content-custom
+{
+    color:white;
+    text-align: center;
+}
+
+.offcanvas-content-custom:hover
+{
+    color: white;
+    text-align: center;
+    background-color: #025de4;
+}
