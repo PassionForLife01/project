@@ -1,0 +1,14 @@
+.dynamic-button
+{
+    transition: all 0.2s ease-in-out;
+}
+
+.dynamic-button:hover
+{
+    transform: scale(1.10);
+}
+
+.dynamic-button:active
+{
+    transform: scale(0.90);
+}
