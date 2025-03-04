@@ -22,3 +22,8 @@
     text-align: center;
     background-color: #025de4;
 }
+
+.sortable-ghost
+{
+    background-color: #dbf3ff;
+}

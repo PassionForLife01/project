@@ -16,24 +16,18 @@
         
         <!-- Custome Head Part -->
         <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
-        <link href="/static/font.css" rel="stylesheet">
-        <link href="/static/button.css" rel="stylesheet">
-        <link href="/static/planner.css" rel="stylesheet">
-        <title>P&amp;R Helper : Planner</title>
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                new Sortable(plannedThings, {
-                    animation: 100,
-                })
-            })
-        </script>
+        <script src="./static/planner.js"></script>
+        <link href="./static/font.css" rel="stylesheet">
+        <link href="./static/button.css" rel="stylesheet">
+        <link href="./static/planner.css" rel="stylesheet">
+        <title>PlanCord : Planner</title>
     </head>
     <body class="custom-font-family">
         <!-- Navbar and Offcanvas -->
         <header>
             <nav class="navbar navbar-expand-lg shadow-lg bg-primary mb-4">
                 <div class="container-fluid">
-                    <a class="navbar-brand navbar-content-custom" href="./index.html">Plancord</a>
+                    <a class="navbar-brand navbar-content-custom" href="./index.html">PlanCord</a>
                     <a class="navbar-brand navbar-content-custom" href="./index.html">Planner</a>
                     <a class="navbar-brand navbar-content-custom" href="./index.html">Recorder</a>
                     <button class="navbar-toggler d-lg-none bg-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#moblieMenu">
@@ -82,81 +76,95 @@
 
             <div class="container-fluid d-flex justify-content-center align-items-center mt-4">
                 <!-- <label for="thingInput" class="form-label">What are you going to do?</label> -->
-                <button class="btn btn-primary d-flex align-items-center justify-content-center me-2 dynamic-button" style="width: 33px; height: 33px;">
+                <button id="saveTasks" class="btn btn-primary d-flex align-items-center justify-content-center me-2 dynamic-button" style="width: 33px; height: 33px;">
                     <i class="bi bi-floppy"></i>
                 </button>
-                <input autocomplete="off" autofocus class="form-control" id="thingInput" name="thing" placeholder="Add your things here" type="text" style="width: 15rem;">
-                <button class="btn btn-primary rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 33px; height: 33px;">
+                <input id="inputTask" autocomplete="off" autofocus class="form-control" name="thing" placeholder="Add your task here" type="text" style="width: 15rem;">
+                <button id="addTask" class="btn btn-primary rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 33px; height: 33px;">
                     <i class="bi bi-plus-lg"></i>
                 </button>
             </div>
 
             <div class="container-fluid d-flex flex-column mt-4">
-                <ul class="list-group mx-auto" id="plannedThings">
-                    <li class="list-group-item d-flex align-items-center justify-content-end">An item
-                        <button class="btn btn-success rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 27px; height: 27px;">
-                            <i class="bi bi-check-lg"></i>
-                        </button>        
-                        
-                        <button class="btn btn-danger rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
-                            <i class="bi bi-trash"></i>
-                        </button> 
-
-                        <button class="btn btn-primary rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
-                            <i class="bi bi-send"></i>
-                        </button> 
+                <ul id="listOfTasks" class="list-group mx-auto rounded-0" id="plannedThings">
+                    <li class="list-group-item d-flex align-items-center justify-content-end">
+                        <div class="d-flex mx-auto">
+                            Study
+                        </div>
+    
+                        <div class="d-flex">
+                            <button onclick="completeTask(event);" class="completeTask btn btn-success rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
+                                <i class="bi bi-check-lg" disabled></i>
+                            </button>        
+                            
+                            <button onclick="deleteTask(event);" class="deleteTask btn btn-danger rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
+                                <i class="bi bi-trash" disabled></i>
+                            </button> 
+    
+                            <button class="recordTask btn btn-primary rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
+                                <i class="bi bi-send"></i>
+                            </button> 
+                        </div>
                     </li>
-                    <li class="list-group-item d-flex align-items-center justify-content-end">A second item
-                        <button class="btn btn-success rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
-                            <i class="bi bi-check-lg"></i>
-                        </button>        
-                        
-                        <button class="btn btn-danger rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
-                            <i class="bi bi-trash"></i>
-                        </button> 
 
-                        <button class="btn btn-primary rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
-                            <i class="bi bi-send"></i>
-                        </button> 
+                    <li class="list-group-item d-flex align-items-center justify-content-end">
+                        <div class="d-flex mx-auto">
+                            Do exercise
+                        </div>
+
+                        <div class="d-flex">
+                            <button onclick="completeTask(event);" class="completeTask btn btn-success rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
+                                <i class="bi bi-check-lg"></i>
+                            </button>        
+                            
+                            <button onclick="deleteTask(event);" class="deleteTask btn btn-danger rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
+                                <i class="bi bi-trash"></i>
+                            </button> 
+    
+                            <button class="recordTask btn btn-primary rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
+                                <i class="bi bi-send"></i>
+                            </button> 
+                        </div>
                     </li>
-                    <li class="list-group-item d-flex align-items-center justify-content-end">A third item
-                        <button class="btn btn-success rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
-                            <i class="bi bi-check-lg"></i>
-                        </button>        
-                        
-                        <button class="btn btn-danger rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
-                            <i class="bi bi-trash"></i>
-                        </button> 
 
-                        <button class="btn btn-primary rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
-                            <i class="bi bi-send"></i>
-                        </button> 
+                    <li class="list-group-item d-flex align-items-center justify-content-end">
+                        <div class="d-flex mx-auto">
+                            Do homework s 8:30 d 3.5
+                        </div>
+
+                        <div class="d-flex">
+                            <button onclick="completeTask(event);" class="completeTask btn btn-success rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
+                                <i class="bi bi-check-lg"></i>
+                            </button>        
+                            
+                            <button onclick="deleteTask(event);" class="deleteTask btn btn-danger rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
+                                <i class="bi bi-trash"></i>
+                            </button> 
+    
+                            <button class="recordTask btn btn-primary rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
+                                <i class="bi bi-send"></i>
+                            </button> 
+                        </div>
                     </li>
-                    <li class="list-group-item d-flex align-items-center justify-content-end">A fourth item
-                        <button class="btn btn-success rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
-                            <i class="bi bi-check-lg"></i>
-                        </button>        
-                        
-                        <button class="btn btn-danger rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
-                            <i class="bi bi-trash"></i>
-                        </button> 
 
-                        <button class="btn btn-primary rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
-                            <i class="bi bi-send"></i>
-                        </button> 
-                    </li>
-                    <li class="list-group-item d-flex align-items-center justify-content-end">And a fifth one
-                        <button class="btn btn-success rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
-                            <i class="bi bi-check-lg"></i>
-                        </button>        
-                        
-                        <button class="btn btn-danger rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
-                            <i class="bi bi-trash"></i>
-                        </button> 
+                    <li class="list-group-item d-flex align-items-center justify-content-end">
+                        <div class="d-flex mx-auto">
+                            And a fifth one
+                        </div>
 
-                        <button class="btn btn-primary rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
-                            <i class="bi bi-send"></i>
-                        </button> 
+                        <div class="d-flex">
+                            <button onclick="completeTask(event);" class="completeTask btn btn-success rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
+                                <i class="bi bi-check-lg"></i>
+                            </button>        
+                            
+                            <button onclick="deleteTask(event);" class="deleteTask btn btn-danger rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
+                                <i class="bi bi-trash"></i>
+                            </button> 
+    
+                            <button class="recordTask btn btn-primary rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
+                                <i class="bi bi-send"></i>
+                            </button> 
+                        </div>
                     </li>
                 </ul>
             </div>
