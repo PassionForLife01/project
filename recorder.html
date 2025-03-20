@@ -15,39 +15,39 @@
         <link href="./static/google_fonts/google_fonts.css" rel="stylesheet">
         
         <!-- Custome Head Part -->
-        <script src="./static/sortable/Sortable.min.js"></script>
         <link href="./static/custom/navbar.css" rel="stylesheet">
-        <script src="./static/custom/planner.js"></script>
         <link href="./static/custom/font.css" rel="stylesheet">
         <link href="./static/custom/button.css" rel="stylesheet">
-        <link href="./static/custom/planner.css" rel="stylesheet">
-        <title>PlanCord : Planner</title>
+        <title>PlanCord : Recorder</title>
     </head>
     <body class="custom-font-family">
         <!-- Navbar and Offcanvas -->
         <header>
-            <nav class="navbar navbar-expand-lg shadow-lg bg-primary mb-4 fixed-top">
+            <nav class="navbar navbar-expand-lg shadow-lg bg-primary mb-4">
                 <div class="container-fluid">
-                    <div class="d-flex w-100">
+                    <div class="d-flex">
                         <a class="navbar-brand navbar-content-custom" href="./index.html">PlanCord</a>
                         <a class="navbar-brand navbar-content-custom" href="./planner.html">Planner</a>
                         <a class="navbar-brand navbar-content-custom" href="./recorder.html">Recorder</a>
-                        <div class="collapse navbar-collapse d-none d-lg-block" id="navbarContent">
-                            <ul class="navbar-nav ms-auto">
-                                <li class="nav-item">
-                                    <a class="nav-link navbar-content-custom" href="./aboutme.html">Contact us</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link navbar-content-custom" href="./hobby.html">Account</a>
-                                </li>
-                            </ul>
-                        </div>
-
+                        
                         <button class="navbar-toggler d-lg-none bg-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#moblieMenu">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                     </div>
+    
+                    <div class="collapse navbar-collapse d-none d-lg-block" id="navbarContent">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link navbar-content-custom" href="./aboutme.html">Contact us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link navbar-content-custom" href="./hobby.html">Account</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+    
+                
             </nav>
     
             <div class="offcanvas offcanvas-end bg-primary" tabindex="-1" id="moblieMenu" style="width: 200px;">
@@ -71,16 +71,11 @@
 
         <!-- Content -->
         <main class="text-center">
-            <div class="container-fluid" style="margin-top: 5rem;">
-                <h1>Planner</h1>
+            <div class="container-fluid mt-3">
+                <h1>Recorder</h1>
             </div>
 
-            <div class="container-fluid d-flex justify-content-center align-items-center mt-4">
-                <!-- <label for="thingInput" class="form-label">What are you going to do?</label> -->
-                <button id="saveTasks" class="btn btn-primary d-flex align-items-center justify-content-center me-2 dynamic-button" style="width: 33px; height: 33px;">
-                    <i class="bi bi-floppy"></i>
-                </button>
-                <input id="inputTask" autocomplete="off" autofocus class="form-control" name="thing" placeholder="Add your task here" type="text" style="width: 15rem;">
+            <div class="container-fluid d-flex justify-content-center align-items-center mt-3">
                 <button id="addTask" class="btn btn-primary rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 33px; height: 33px;">
                     <i class="bi bi-plus-lg"></i>
                 </button>
@@ -89,7 +84,7 @@
             <div class="container-fluid d-flex flex-column mt-4">
                 <ul id="listOfTasks" class="list-group mx-auto rounded-0" id="plannedThings">
                     <li class="list-group-item d-flex align-items-center justify-content-end">
-                        <div class="d-flex mx-auto task-content">
+                        <div class="d-flex mx-auto">
                             Study
                         </div>
     
@@ -109,17 +104,17 @@
                     </li>
 
                     <li class="list-group-item d-flex align-items-center justify-content-end">
-                        <div class="d-flex mx-auto task-content">
-                            Study
+                        <div class="d-flex mx-auto">
+                            Do exercise
                         </div>
-    
+
                         <div class="d-flex">
                             <button onclick="completeTask(event);" class="completeTask btn btn-success rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
-                                <i class="bi bi-check-lg" disabled></i>
+                                <i class="bi bi-check-lg"></i>
                             </button>        
                             
                             <button onclick="deleteTask(event);" class="deleteTask btn btn-danger rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
-                                <i class="bi bi-trash" disabled></i>
+                                <i class="bi bi-trash"></i>
                             </button> 
     
                             <button class="recordTask btn btn-primary rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
@@ -129,17 +124,37 @@
                     </li>
 
                     <li class="list-group-item d-flex align-items-center justify-content-end">
-                        <div class="d-flex mx-auto task-content">
-                            Study
+                        <div class="d-flex mx-auto">
+                            Do homework s 8:30 d 3.5
                         </div>
-    
+
                         <div class="d-flex">
                             <button onclick="completeTask(event);" class="completeTask btn btn-success rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
-                                <i class="bi bi-check-lg" disabled></i>
+                                <i class="bi bi-check-lg"></i>
                             </button>        
                             
                             <button onclick="deleteTask(event);" class="deleteTask btn btn-danger rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
-                                <i class="bi bi-trash" disabled></i>
+                                <i class="bi bi-trash"></i>
+                            </button> 
+    
+                            <button class="recordTask btn btn-primary rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
+                                <i class="bi bi-send"></i>
+                            </button> 
+                        </div>
+                    </li>
+
+                    <li class="list-group-item d-flex align-items-center justify-content-end">
+                        <div class="d-flex mx-auto">
+                            And a fifth one
+                        </div>
+
+                        <div class="d-flex">
+                            <button onclick="completeTask(event);" class="completeTask btn btn-success rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
+                                <i class="bi bi-check-lg"></i>
+                            </button>        
+                            
+                            <button onclick="deleteTask(event);" class="deleteTask btn btn-danger rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">
+                                <i class="bi bi-trash"></i>
                             </button> 
     
                             <button class="recordTask btn btn-primary rounded-circle d-flex align-items-center justify-content-center ms-2 dynamic-button" style="width: 25px; height: 25px;">

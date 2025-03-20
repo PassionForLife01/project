@@ -1,0 +1,20 @@
+.sortable-ghost
+{
+    background-color: #dbf3ff;
+}
+
+.task-content
+{
+    max-width: calc(100% - 100px);
+    overflow-wrap: break-word;
+}
+
+.list-group
+{
+    max-width: 100%;
+}
+
+.navbar-toggler
+{
+    margin-left: auto;
+}

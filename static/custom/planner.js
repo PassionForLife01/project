@@ -1,7 +1,7 @@
 function getListTemplate(value)
 {
     html = `<li class="list-group-item d-flex align-items-center justify-content-end">
-                <div class="d-flex mx-auto">
+                <div class="d-flex mx-auto task-content">
                     ${value}
                 </div>
 
@@ -48,7 +48,8 @@ function recordTask(event)
 document.addEventListener('DOMContentLoaded', function() {
     new Sortable(listOfTasks, {
         animation: 100,
-        ghostClass: 'sortable-ghost'
+        ghostClass: 'sortable-ghost',
+        delay: 100,
     });
 })
 
@@ -59,9 +60,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (input.value) {
             let list = document.querySelector('#listOfTasks');
 
-            html = list.innerHTML;
+            let tempHTML = list.innerHTML;
 
-            html += getListTemplate(input.value);
+            html = getListTemplate(input.value).concat(tempHTML);
 
             list.innerHTML = html;
 
