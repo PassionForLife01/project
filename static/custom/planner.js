@@ -1,4 +1,4 @@
-function getListTemplate(value)
+function getTaskTemplate(value)
 {
     html = `<li class="list-group-item d-flex align-items-center justify-content-end">
                 <div class="d-flex mx-auto task-content">
@@ -24,17 +24,21 @@ function getListTemplate(value)
 
 function completeTask(event)
 {
-    let button = event.target.closest('.completeTask');
-    let task = button.parentElement.parentElement;
-    task.remove();
+    setTimeout(() => {
+        let button = event.target.closest('.completeTask');
+        let task = button.parentElement.parentElement;
+        task.remove();
+    }, 200);
     return;
 }
 
 function deleteTask(event)
 {
-    let button = event.target.closest('.deleteTask');
-    let task = button.parentElement.parentElement;
-    task.remove();
+    setTimeout(() => {
+        let button = event.target.closest('.deleteTask');
+        let task = button.parentElement.parentElement;
+        task.remove();
+    }, 200)
     return;
 }
 
@@ -59,10 +63,10 @@ document.addEventListener('DOMContentLoaded', function() {
         let input = document.querySelector('#inputTask');
         if (input.value) {
             let list = document.querySelector('#listOfTasks');
-
+            
             let tempHTML = list.innerHTML;
 
-            html = getListTemplate(input.value).concat(tempHTML);
+            html = getTaskTemplate(input.value).concat(tempHTML);
 
             list.innerHTML = html;
 

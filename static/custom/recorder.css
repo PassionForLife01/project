@@ -1,0 +1,10 @@
+.list-group
+{
+    max-width: 100%;
+}
+
+.thing-content
+{
+    max-width: calc(100% - 154px);
+    overflow-wrap: break-word;
+}

@@ -5,7 +5,9 @@
 
 .task-content
 {
+    hyphens: auto;
     max-width: calc(100% - 100px);
+    word-break: break-word;
     overflow-wrap: break-word;
 }
 
