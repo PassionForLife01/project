@@ -110,34 +110,56 @@
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
-                            <div class="fs-5 mb-2 fw-bolder">Content</div>
-                            <textarea rows="2" type="text" id="recordThingContent" name="content" class="form-control" placeholder="whatever you've done."></textarea>
+                            <div class="fs-5 mb-2 fw-bolder">📝 Content</div>
+                            <textarea rows="2" type="text" id="recordThingContent" name="content" class="form-control is-invalid" placeholder="whatever you've done"></textarea>
+                            <div class="invalid-feedback">The length of content cannot be greater than 50 chars!</div>
                         </div>
 
                         <div class="mb-3">
+                            <div class="fs-5 mb-2 fw-bolder">🏷️ Category</div>
+                            <div class="input-group" style="width: var(--category-input-width);">
+                                <input type="text" id="recordThingCategory" name="category" value="Others" class="form-control">
+                                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"></button>
+                                <ul id="recordThingCategoryDropdown" class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Study</a></li>
+                                    <li><a class="dropdown-item" href="#">Work</a></li>
+                                    <li><a class="dropdown-item" href="#">Sports</a></li>
+                                    <li><a class="dropdown-item" href="#">Others</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="mb-3">
                             <div class="d-flex mb-2 justify-content-start align-items-center">
-                                <div class="fs-5 fw-bolder">Time</div>
-                                <div class="ms-2">(YYYY-MM-DD HH:MM)</div>
+                                <div class="fs-5 fw-bolder">⏳ Time</div>
                             </div>
                             <div class="d-flex mb-1 ms-2 justify-content-start align-items-center">
-                                <b>From</b> <input type="datetime-local" name="startTime" class="form-control" style="margin-left: 10px; width: var(--time-input-width);">
+                                <b>From</b> <input type="datetime-local" name="startTime" class="form-control is-invalid" style="margin-left: 10px; width: var(--time-input-width);">
                             </div>
+
                             <div class="d-flex mb-1 ms-2 justify-content-start align-items-center">
                                 <b>To</b> <input type="datetime-local" name="endTime" value="2025-03-21T17:00" class="form-control" style="margin-left: 35px; width: var(--time-input-width);">
                             </div>
                         </div>
 
                         <div class="mb-3">
-                            <h1 class="fs-5 mb-0 fw-bolder">Duration:</h1>
-                            <div>
-                                36 mins
+                            <div class="fs-5 mb-2 fw-bolder">⏱️ Duration</div>
+                            <div class="d-flex">
+                                <input type="text" id="recordThingDuration" name="duration" value="28 hours 59 mins" class="form-control" style="width: var(--duraiton-input-width);">
+                                <button class="btn btn-success ms-2 dynamic-button">
+                                    <i class="bi bi-calculator"></i>
+                                </button>
                             </div>     
                         </div>
 
+                        <hr>
+
                         <div class="mb-3">
-                            <h1 class="fs-5 mb-0 fw-bolder">Record:</h1>
+                            <div class="fs-5 mb-2 fw-bolder">📀 Record</div>
                             <div>
-                                Have learned the basic usage of nmap. Maybe I need to try other ways to take the note 😭.
+                                <textarea rows="3" type="text" id="recordThingRecord" name="record" class="form-control" placeholder="record your thoughts"></textarea>
                             </div>
                         </div>
                     </div>
@@ -160,21 +182,28 @@
                         </div>
                         <div class="modal-body">
                             <div class="mb-3">
-                                <div class="fs-5 mb-0 fw-bolder">Time: </div>
+                                <div class="fs-5 mb-0 fw-bolder">🏷️Category:</div>
+                                <div class="fw-bold">
+                                    Study
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <div class="fs-5 mb-0 fw-bolder">⏳Time: </div>
                                 <div>
                                     <b>From</b> 03-21 16:24 <b>To</b> 03-21 17:00
                                 </div> 
                             </div>
 
                             <div class="mb-3">
-                                <div class="fs-5 mb-0 fw-bolder">Duration:</div>
+                                <div class="fs-5 mb-0 fw-bolder">⏱️Duration:</div>
                                 <div>
                                     36 mins
                                 </div>     
                             </div>
 
                             <div class="mb-3">
-                                <div class="fs-5 mb-0 fw-bolder">Record:</div>
+                                <div class="fs-5 mb-0 fw-bolder">📀Record:</div>
                                 <div>
                                     Have learned the basic usage of nmap. Maybe I need to try other ways to take the note 😭.
                                 </div>
